@@ -48,7 +48,7 @@ There are many ports on the Rio, some of the most important of which are:
 
 <details>
 	<summary>Robot Signal Light</summary>
-  This is the port for the RSL. When plugging this in, make sure to plug in the black wire to the port closest to the edge.
+  This is the port for the [RSL](/index.html?path=Components/RSL.md). When plugging this in, make sure to plug in the black wire to the port closest to the edge.
 </details>
 
 <details>

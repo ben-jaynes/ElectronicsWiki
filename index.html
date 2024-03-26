@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Marked in the browser</title>
+</head>
+<body>
+  <div id="content"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    
+    const searchParams = new URLSearchParams(window.location.search);
+    const path = searchParams.get('path');
+
+	fetch(path)
+  .then(response => response.text())
+  .then(text => document.getElementById('content').innerHTML =
+      marked.parse(text));
+  // outputs the content of the text file
+  </script>
+</body>
+</html>
