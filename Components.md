@@ -2,7 +2,7 @@
 title: Components
 description: 
 published: true
-date: 2024-03-26T04:58:32.286Z
+date: 2024-03-26T05:07:54.814Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-26T04:30:41.559Z
@@ -17,6 +17,7 @@ This is where you can find all of the components that are on a robot, and resour
 <summary>Main Components</summary>
 
 - [RoboRIO](/Components/RoboRIO)
+- [RSL](/Components/RSL)
 {.links-list}
 </details>
 
