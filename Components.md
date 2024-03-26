@@ -2,7 +2,7 @@
 title: Components
 description: 
 published: true
-date: 2024-03-26T04:30:41.559Z
+date: 2024-03-26T04:32:52.383Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-26T04:30:41.559Z
@@ -13,8 +13,9 @@ This is where you can find all of the components that are on a robot, and resour
 
 <details>
 <summary>Main Components</summary>
-<br>
-[Common-Issues](/Common-Issues)
+
+- [Common-Issues](/Common-Issues)
+{.links-list}
 </details>
 
 <details>
