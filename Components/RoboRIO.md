@@ -2,7 +2,7 @@
 title: RoboRIO
 description: 
 published: true
-date: 2024-03-26T04:46:59.891Z
+date: 2024-03-26T04:51:57.468Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-26T04:39:28.504Z
@@ -39,4 +39,24 @@ There are many ports on the Rio, some of the most important of which are:
 <details>
   <summary>LEDs</summary>
   These LEDs can be used to see the status of the Rio, which can be found [here](https://docs.wpilib.org/en/stable/docs/hardware/hardware-basics/status-lights-ref.html)
+</details>
+
+<details>
+	<summary>Reset and User Buttons</summary>
+  These buttons are mostly used for resetting the Rio. This is most useful for when the Rio is E-Stopped, and instructions for undoing this can be found [here](TODO: link)
+</details>
+
+<details>
+	<summary>Robot Signal Light</summary>
+  This is the port for the RSL. When plugging this in, make sure to plug in the black wire to the port closest to the edge.
+</details>
+
+<details>
+	<summary>DIO</summary>
+  These are DIO (Digital Input Output) ports. These ports can be used to read data from external sensors. This includes things like linebreak sensors, limit switches and more.
+</details>
+
+<details>
+	<summary>CAN</summary>
+  This is where the CAN bus starts. To insert the CAN wires, press down on the white button, and then insert the wire. Make sure the wire is secure by pulling on it. 
 </details>
