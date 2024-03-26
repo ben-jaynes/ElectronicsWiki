@@ -2,13 +2,15 @@
 title: Components
 description: 
 published: true
-date: 2024-03-26T04:54:49.215Z
+date: 2024-03-26T04:58:32.286Z
 tags: 
 editor: markdown
 dateCreated: 2024-03-26T04:30:41.559Z
 ---
 
 # Components
+![controlsystem.svg](/controlsystem.svg)
+
 This is where you can find all of the components that are on a robot, and resources relating to them
 
 <details>
