@@ -26,6 +26,7 @@ dateCreated: 2024-03-26T06:02:43.128Z
 
   <header>
     <nav>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <div class="nav-wrapper">
         <div class="teal" id="nav">
           <a href="#!" class="breadcrumb">First</a>
@@ -46,7 +47,7 @@ dateCreated: 2024-03-26T06:02:43.128Z
       <li><a href="index.html?path=Common-Issues">Common Issues</a></li>
       <li><a href="index.html?path=Components">Components</a></li>
     </ul>
-    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    
   </header>
   
   <main>
@@ -64,7 +65,13 @@ dateCreated: 2024-03-26T06:02:43.128Z
     // });
     
     const searchParams = new URLSearchParams(window.location.search);
-    const path = searchParams.get('path');
+    var path = "";
+    if (searchParams.has('path'))
+    {
+      path = searchParams.get('path');
+    } else {
+      path = "home"
+    }
 
     fetch("Content/" + path + ".md")
     .then(response => response.text())
