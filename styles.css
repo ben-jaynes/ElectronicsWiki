@@ -1,0 +1,33 @@
+
+
+details {
+    background-color: rgb(187, 187, 187);
+    border-radius: 5px;
+    margin: 10px;
+}
+
+summary {
+    font-size: medium;
+    background-color: rgb(170, 170, 170);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+details[open] summary {
+    border-radius: 5px 5px 0 0;
+}
+
+p {
+    padding: 10px;
+}
+
+main, nav, footer {
+    padding-left: 300px;
+}
+
+
+@media only screen and (max-width : 992px) {
+    nav, main, footer {
+      padding-left: 0;
+    }
+  }

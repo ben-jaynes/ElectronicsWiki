@@ -13,19 +13,90 @@ dateCreated: 2024-03-26T06:02:43.128Z
 <head>
   <meta charset="utf-8"/>
   <title>Marked in the browser</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <div id="content"></div>
+
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <div class="teal" id="nav">
+          <a href="#!" class="breadcrumb">First</a>
+          <a href="#!" class="breadcrumb">Second</a>
+          <a href="#!" class="breadcrumb">Third</a>
+        </div>
+      </div>
+    </nav>
+  
+    <!-- <ul class="sidenav sidenav-fixed">
+      <li>test</li>
+      <li>test</li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+      <li><a href="index.html?path=home">Home</a></li>
+      <li><a href="index.html?path=Common-issues">Common Issues</a></li>
+      <li><a href="index.html?path=Components">Components</a></li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  </header>
+  
+  <main>
+    <div id="content"></div>
+  </main>
+
+  
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
   <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems, options);
+    });
     
     const searchParams = new URLSearchParams(window.location.search);
     const path = searchParams.get('path');
 
-	fetch(path)
-  .then(response => response.text())
-  .then(text => document.getElementById('content').innerHTML =
-      marked.parse(text));
+    fetch("Content/" + path + ".md")
+    .then(response => response.text())
+    .then(text => {
+
+      var text = marked.parse(text);
+
+      // text = text.replace("<details>", "<ul class='collapsible expandable'>");
+      // text = text.replace("</details>", "</ul>");
+
+      document.getElementById('content').innerHTML = text;
+
+
+      const pages = path.split("/");
+      const nav = document.getElementById("nav");
+      var navText = "";
+      for (var i = 0; i < pages.length; i++)
+      {
+        var uptopath = "";
+        for (var j = 0; j < i + 1; j++)
+        {
+          uptopath += pages[j] + "/"
+        }
+        uptopath = uptopath.substring(0, uptopath.length - 1);
+        navText += "<a href=index.html?path=" + uptopath + " class='breadcrumb'>" + pages[i] + "</a>"
+      }
+      
+      nav.innerHTML = navText;
+ 
+      M.AutoInit();
+
+    });
   // outputs the content of the text file
   </script>
 </body>

@@ -1,16 +1,7 @@
----
-title: Can't Update Pigeon
-description: 
-published: true
-date: 2024-03-26T06:03:22.515Z
-tags: 
-editor: markdown
-dateCreated: 2024-03-26T02:16:47.350Z
----
 
 The Pigeon can be very hard to update sometimes, as since it is not. REV product, you cannot update it through Hardware Client.
 
-![](/pigeongyro.jpg)
+![](Images/pigeongyro.jpg)
 
 The Pigeon Gyro 2.0 from CTRE
 
