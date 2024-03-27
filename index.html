@@ -42,8 +42,10 @@ dateCreated: 2024-03-26T06:02:43.128Z
     </ul>
     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
 
-    <ul id="slide-out" class="sidenav sidenav-fixed">
-      <li><a href="index.html?path=home">Home</a></li>
+    <ul id="slide-out" class="sidenav sidenav-fixed collapsible">
+      <li>
+       <a href="index.html?path=home">Home</a>
+      </li>
       <li><a href="index.html?path=Common-Issues">Common Issues</a></li>
       <li><a href="index.html?path=Components">Components</a></li>
     </ul>
@@ -52,12 +54,35 @@ dateCreated: 2024-03-26T06:02:43.128Z
   
   <main>
     <div id="content"></div>
+    <ul class="collapsible">
+      <li>
+        <div class="collapsible-header">header 1</div>
+        <div class="collapsible-body" style="padding: 0px;">
+          <ul class="collapsible" style="padding: 0px;">
+            <li>
+              <div class="collapsible-header">header 1</div>
+              <div class="collapsible-body">body</div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    
   </main>
 
   
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script>
+
+    // function GetSideListHTML(data)
+    // {
+    //   if (data.type == 'directory')
+    //   {
+    //     text = "<ul class='collapsible'>"
+    //     for ()
+    //   }
+    // }
 
     // document.addEventListener('DOMContentLoaded', function() {
     //   var elems = document.querySelectorAll('.sidenav');
@@ -73,13 +98,22 @@ dateCreated: 2024-03-26T06:02:43.128Z
       path = "home"
     }
 
+    var files
+
+    fetch("filetree.json").then(response => response.text()).then(text => {
+        files = JSON.parse(text)
+        console.log(files)
+
+
+    });
+
     fetch("Content/" + path + ".md")
     .then(response => response.text())
     .then(text => {
 
       var text = marked.parse(text);
 
-      // text = text.replace("<details>", "<ul class='collapsible expandable'>");
+      text = text.replace("<img", "<img class='materialboxed' ");
       // text = text.replace("</details>", "</ul>");
 
       document.getElementById('content').innerHTML = text;
