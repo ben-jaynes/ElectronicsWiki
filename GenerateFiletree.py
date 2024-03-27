@@ -11,8 +11,10 @@ def path_to_dict(path):
         d['type'] = "file"
     return d
 
-print("Hello! I am running")
 
 f = open("./filetree.json", "w")
 f.write(json.dumps(path_to_dict('Content/')))
 f.close()
+
+
+print(json.dumps(path_to_dict('Content/')))
