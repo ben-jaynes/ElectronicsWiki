@@ -54,19 +54,6 @@ dateCreated: 2024-03-26T06:02:43.128Z
   
   <main>
     <div id="content"></div>
-    <ul class="collapsible">
-      <li>
-        <div class="collapsible-header">header 1</div>
-        <div class="collapsible-body" style="padding: 0px;">
-          <ul class="collapsible" style="padding: 0px;">
-            <li>
-              <div class="collapsible-header">header 1</div>
-              <div class="collapsible-body">body</div>
-            </li>
-          </ul>
-        </div>
-      </li>
-    </ul>
     
   </main>
 
@@ -88,6 +75,21 @@ dateCreated: 2024-03-26T06:02:43.128Z
     //   var elems = document.querySelectorAll('.sidenav');
     //   var instances = M.Sidenav.init(elems, options);
     // });
+
+    function SearchPages(query, data) {
+      var results = [];
+      for (var i = 0; i < data.children.length; i++)
+      {
+        if (data.children[i].type == "directory")
+        {
+          console.log(data.children[i]);
+          results.concat(SearchPages(query, data.children[i]));
+        } else if (data.children[i].name.includes(query)) {
+          results.push(data.children[i].name);
+        }
+      }
+      return results;
+    }
     
     const searchParams = new URLSearchParams(window.location.search);
     var path = "";
@@ -95,15 +97,16 @@ dateCreated: 2024-03-26T06:02:43.128Z
     {
       path = searchParams.get('path');
     } else {
-      path = "home"
+      path = "home";
     }
 
     var files
 
     fetch("filetree.json").then(response => response.text()).then(text => {
-        files = JSON.parse(text)
-        console.log(files)
+        files = JSON.parse(text);
+        console.log(files);
 
+        //console.log(SearchPages("RS", files));
 
     });
 
